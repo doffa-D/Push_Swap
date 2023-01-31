@@ -6,7 +6,7 @@
 #    By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/15 13:14:01 by hdagdagu          #+#    #+#              #
-#    Updated: 2023/01/14 10:37:24 by hdagdagu         ###   ########.fr        #
+#    Updated: 2023/01/31 20:03:17 by hdagdagu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,10 +29,10 @@ color =\033[0;35m
 END=\033[0m
 
 all:$(NAME)
-	@echo "$(color) [✅] ft_printf $(END)"
 	
 $(NAME): $(OBJ)
 	@$(AR) $@ $^
+	@echo "$(color) [✅] ft_printf $(END)"
 
 %.o:%.c
 	@$(CC) $(CFLAGS) -c $^ -o $@ 

@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check.c                                            :+:      :+:    :+:   */
+/*   check_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 21:59:12 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/01/31 20:03:39 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/01/31 22:15:02 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 int is_sorted(int *stack, int andx) 
 {
@@ -28,10 +28,9 @@ int is_sorted(int *stack, int andx)
     }
     if(j == 1 && x == 0)
     {
-        ft_printf("Number is already sorted\n");
-        exit(0);
+        return 1;
     }
-    return 1;
+    return 0;
 }
 
 

@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 18:58:31 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/01/30 20:34:21 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/01/31 16:52:37 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,11 @@ void	push_a(int *stack,int andx,int len)
 void	final_push(t_data *data)
 {
 	int i;
+	int big;
 
 	i = 0;
-	push_b(data,data->stack_b,big_in_stack(data->stack_b,data->element - data->andx - 2),data->element - data->andx - 2);
+	big = big_in_stack(data->stack_b,data->element - data->andx - 2);
+	push_b(data,data->stack_b,big,data->element - data->andx - 2);
 	while(i < data->element)
 	{
 		pa(data,data->element,data->andx);

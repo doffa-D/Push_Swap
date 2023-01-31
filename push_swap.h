@@ -6,9 +6,12 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 10:03:22 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/01/31 14:37:54 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/01/31 20:07:00 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
 #include "libft/libft.h"
 #include "ft_printf/ft_printf.h"
@@ -83,3 +86,6 @@ void    count_stack_a(int less,t_data *data,int b,t_count *count);
 void    count_stack_b(int andx,t_data *data,int a,t_count *count);
 
 int different_number(char *str);
+
+
+#endif

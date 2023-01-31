@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   rules_ss_rr_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/16 13:25:11 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/01/31 18:43:41 by hdagdagu         ###   ########.fr       */
+/*   Created: 2023/01/30 20:43:47 by hdagdagu          #+#    #+#             */
+/*   Updated: 2023/01/31 22:48:19 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <unistd.h>
-# include <stdarg.h>
+#include "push_swap_bonus.h"
 
-int		ft_printf(const char *src, ...);
-int		ft_put_hex(unsigned int hex, char d);
-int		ft_unsi_putnbr(unsigned int n);
-int		ft_put_addp(unsigned long hex, char d);
-int		ft_putchar(int c);
-int		ft_putnbr(int n);
-int		ft_putstr(char *s);
+void	ss(int *stack_a,int *stack_b, int element,int andx)
+{
+	sa(stack_a,andx);
+	sb(stack_b,element,andx);
+}
 
-#endif
+
+
+void rr(int *stack_a,int *stack_b, int andx,int indexb)
+{
+	ra(stack_a,andx);
+	rb(stack_b,indexb);
+}
+
+
+void rrr(int *stack_a,int *stack_b, int andx,int indexb)
+{
+	rra(stack_a,andx);
+	rrb(stack_b,indexb);
+}

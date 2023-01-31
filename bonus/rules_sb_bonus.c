@@ -1,64 +1,62 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rules_sa.c                                         :+:      :+:    :+:   */
+/*   rules_sb_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 13:50:49 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/01/31 20:08:42 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/01/31 22:47:03 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
-void sa(int *stack_a,int andx)
+
+void sb(int *stack_b,int element,int andx)
 {
 	int tmp;
-	if(andx <= 0)
+	if(element - andx - 2 <= 0)
 		return ;
-	tmp= stack_a[andx - 1];
-	stack_a[andx - 1] = stack_a[andx];
-	stack_a[andx] = tmp;
-	ft_printf("sa\n");
+	tmp = stack_b[element - andx - 3];
+	stack_b[element - andx - 3] = stack_b[element - andx - 2];
+	stack_b[element - andx - 2] = tmp;
 }
 
 
-void pa(t_data *data, int element, int andx)
+
+void pb(t_data *data, int element, int andx)
 {
-	data->stack_a[andx + 1] = data->stack_b[element - andx - 2];
-	data->stack_b[element - andx - 2] = 0;
-	data->sizeb--;
-	data->andx++;
-	ft_printf("pa\n");
+	data->stack_b[element - andx - 1] = data->stack_a[andx];
+	data->stack_a[andx] = 0;
+	data->andx--;
+	data->sizeb++;
 }
 
-void ra(int *stack_a, int andx,int num)
+
+void rb(int *stack_b, int andx)
 {
 	int y;
 	int i = andx;
-	y = stack_a[andx];
+	y = stack_b[andx];
 	while(i)
 	{
-		stack_a[i] = stack_a[i-1];
+		stack_b[i] = stack_b[i-1];
 		i--;
 	}
-	stack_a[i] = y;
-    if(num != 1)
-	    ft_printf("ra\n");
+	stack_b[i] = y;
 }
 
-void rra(int *stack_a, int andx,int num)
+
+void rrb(int *stack_b, int andx)
 {
 	int y;
 	int i = 0;
-	y = stack_a[0];
+	y = stack_b[0];
 	while(i < andx)
 	{
-		stack_a[i] = stack_a[i + 1];
+		stack_b[i] = stack_b[i + 1];
 		i++;
 	}
-	stack_a[i] = y;
-    if(num != 1)
-	    ft_printf("rra\n");
+	stack_b[i] = y;
 }

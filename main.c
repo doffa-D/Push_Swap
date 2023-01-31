@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 19:34:09 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/01/31 14:38:04 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/01/31 20:01:30 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,22 @@ void fill(t_data *data, char **str, int len)
 	data->andx = i - 1;
 	data->argc = len;
 
+
 }
 
 int main(int argc, char *argv[])
 {
 	t_data data;
 
-	if(!argv[1] || !argv[2])
-		ft_printf("Error");
+	if(argc == 1 || !argv[2])
+	{
+		ft_printf("Error\n");
+		exit(0);
+	}
 	if(argc != 2)
 	{
 		fill(&data, number_join(&data,argv), data.len);
+		is_sorted(data.stack_a,data.andx);
 		if (argc == 3)
 			sort_2(&data);
 		else if (argc == 4)
