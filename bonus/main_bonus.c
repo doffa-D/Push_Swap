@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 20:13:51 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/02/02 23:49:35 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/02/02 23:58:09 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	check_max(char **argv)
 {
-	int i;
-	i = 1;
+	int	i;
 
-	while(argv[i])
+	i = 1;
+	while (argv[i])
 	{
-		if (ft_atoi(argv[i], 0) > INT_MAX || ft_atoi(argv[i], 0) < INT_MIN )
+		if (ft_atoi(argv[i], 0) > INT_MAX || ft_atoi(argv[i], 0) < INT_MIN)
 			error();
 		i++;
 	}
@@ -36,7 +36,7 @@ void	fill(t_data *data, char **str, int len)
 		return ;
 	while (i < len)
 	{
-		data->stack_a[i] = ft_atoi(str[len - i - 1],0);
+		data->stack_a[i] = ft_atoi(str[len - i - 1], 0);
 		free(str[len - i - 1]);
 		data->stack_b[i] = 0;
 		i++;
