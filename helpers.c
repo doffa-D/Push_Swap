@@ -6,18 +6,17 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 18:51:51 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/01/30 20:14:13 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/02/02 20:05:27 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "push_swap.h"
 
-int small(int *stack, int len)
+int	small(int *stack, int len)
 {
-	int i;
-	int j;
-	int tmp;
+	int	i;
+	int	j;
+	int	tmp;
 
 	tmp = stack[len];
 	i = 0;
@@ -31,57 +30,33 @@ int small(int *stack, int len)
 		}
 		i++;
 	}
-	return j;
+	return (j);
 }
 
-int big_in_stack(int *stack, int len)
+int	less_than(int *stack, int num, int len)
 {
-	int tmp;
-	int i;
-	int andx;
+	int		i;
+	long	j;
+	int		indx;
 
-	i = 0;
-	tmp = stack[i];
-	andx = 0;
-
-	while (i <= len)
-	{
-		if (tmp < stack[i])
-		{
-			tmp = stack[i];
-			andx = i;
-		}
-		i++;
-	}
-	return andx;
-}
-
-int	less_than(int *stack,int num,int len)
-{
-	int i;
-	long j;
-	int indx;
-	
 	i = -1;
 	indx = 0;
 	j = -1;
-	while(++i <= len)
+	while (++i <= len)
 	{
-		if(num > stack[i])
+		if (num < stack[i])
 		{
-			if(j == -1)
+			if (j == -1)
 			{
-				j = (long)num - (long)stack[i];
+				j = (long)stack[i] - (long)num;
 				indx = i;
 			}
-			if((long)num - (long)stack[i] <= j)
+			if ((long)stack[i] - (long)num <= j)
 			{
-				j = (long)num - (long)stack[i];
+				j = (long)stack[i] - (long)num;
 				indx = i;
 			}
 		}
 	}
-	if(j != -1)
-		return indx;
-	return(big_in_stack(stack,len));
+	return (indx);
 }

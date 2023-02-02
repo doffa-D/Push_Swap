@@ -6,40 +6,43 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 18:32:55 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/01/31 14:29:54 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/02/02 20:58:55 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+void	error3(void)
 {
-	int	i;
-	int	result;
-	int	sing;
+	write(2, "Error\n", 6);
+	exit(0);
+}
 
-	result = 0;
-	sing = 1;
+long long int	ft_atoi(const char *str, int i)
+{
+	int					sign;
+	unsigned long long	number;
+
+	number = 0;
 	i = 0;
-	while ((str[i] == 32) || (str[i] == '\t') || (str[i] == '\n')
-		|| (str[i] == '\r') || (str[i] == '\v') || (str[i] == '\f'))
+	sign = 1;
+	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n' || str[i] == '\r'
+		|| str[i] == '\v' || str[i] == '\f')
 		i++;
-	if (str[i] == '-' || str[i] == '+')
+	if (str[i] == '-')
 	{
-		if (str[i] == '-')
-			sing = -1;
 		i++;
+		sign = -1;
 	}
+	else if (str[i] == '+')
+		i++;
 	while (str[i])
 	{
-		if(ft_isdigit(str[i]))
-			result = (result * 10) + str[i] - 48;
+		if (ft_isdigit(str[i]))
+			number = number * 10 + str[i] - '0';
 		else
-		{
-			ft_printf("You have a wrong number\n");
-			exit(0);
-		}
+			error3();
 		i++;
 	}
-	return (result * sing);
+	return (number * sign);
 }

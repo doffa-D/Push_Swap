@@ -6,13 +6,11 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 14:53:48 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/01/31 20:23:30 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/02/02 20:43:42 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-// #include "../libft/libft.h"
-
 
 char	*get_next_line(int fd)
 {

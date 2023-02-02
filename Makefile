@@ -6,11 +6,12 @@
 #    By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/14 08:57:38 by hdagdagu          #+#    #+#              #
-#    Updated: 2023/01/31 22:17:54 by hdagdagu         ###   ########.fr        #
+#    Updated: 2023/02/02 20:25:45 by hdagdagu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC =	main.c \
+		another_sort.c \
 		sort.c \
 		check.c \
 		best_element.c \
@@ -21,7 +22,6 @@ SRC =	main.c \
 		rules_sb.c \
 		rules_sa.c \
 		rules_ss_rr.c \
-		print.c \
 
 
 SRCBNS = 	bonus/main_bonus.c \
@@ -30,8 +30,6 @@ SRCBNS = 	bonus/main_bonus.c \
 			bonus/rules_ss_rr_bonus.c \
 			bonus/rules_sb_bonus.c \
 			bonus/check_bonus.c \
-
-
 
 CC = gcc
 FLAGS = -Wall -Werror -Wextra
@@ -71,11 +69,11 @@ bonus : $(NAMEB)
 fclean:
 	@make fclean -C $(LIBFT)
 	@make fclean -C $(FT_PRINTF)
-	@rm -rf $(NAME) $(OBJ) $(OBJB)
+	@rm -rf $(NAME) $(OBJ) $(OBJB) $(NAMEB)
 
 clean:
 	@make clean -C $(LIBFT)
 	@make clean -C $(FT_PRINTF)
-	@rm -rf $(OBJ)
+	@rm -rf $(OBJ) $(OBJB)
 
 re:fclean all 

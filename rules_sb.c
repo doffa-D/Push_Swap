@@ -6,27 +6,23 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 13:50:49 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/01/30 20:44:58 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/02/02 20:13:56 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-void sb(int *stack_b,int element,int andx)
+void	sb(int *stack_b, int element, int andx)
 {
-	int tmp;
-	if(element - andx - 2 <= 0)
-		return ;
+	int	tmp;
+
 	tmp = stack_b[element - andx - 3];
 	stack_b[element - andx - 3] = stack_b[element - andx - 2];
 	stack_b[element - andx - 2] = tmp;
 	ft_printf("sb\n");
 }
 
-
-
-void pb(t_data *data, int element, int andx)
+void	pb(t_data *data, int element, int andx)
 {
 	data->stack_b[element - andx - 1] = data->stack_a[andx];
 	data->stack_a[andx] = 0;
@@ -35,34 +31,36 @@ void pb(t_data *data, int element, int andx)
 	ft_printf("pb\n");
 }
 
-
-void rb(int *stack_b, int andx,int num)
+void	rb(int *stack_b, int andx, int num)
 {
-	int y;
-	int i = andx;
+	int	y;
+	int	i;
+
+	i = andx;
 	y = stack_b[andx];
-	while(i)
+	while (i)
 	{
-		stack_b[i] = stack_b[i-1];
+		stack_b[i] = stack_b[i - 1];
 		i--;
 	}
 	stack_b[i] = y;
-    if(num != 1)
-	    ft_printf("rb\n");
+	if (num != 1)
+		ft_printf("rb\n");
 }
 
-
-void rrb(int *stack_b, int andx,int num)
+void	rrb(int *stack_b, int andx, int num)
 {
-	int y;
-	int i = 0;
+	int	y;
+	int	i;
+
+	i = 0;
 	y = stack_b[0];
-	while(i < andx)
+	while (i < andx)
 	{
 		stack_b[i] = stack_b[i + 1];
 		i++;
 	}
 	stack_b[i] = y;
-    if(num != 1)
-	    ft_printf("rrb\n");
+	if (num != 1)
+		ft_printf("rrb\n");
 }
