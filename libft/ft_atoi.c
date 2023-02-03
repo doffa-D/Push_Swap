@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 18:32:55 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/02/02 20:58:55 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/02/03 18:54:02 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ long long int	ft_atoi(const char *str, int i)
 	{
 		if (ft_isdigit(str[i]))
 			number = number * 10 + str[i] - '0';
-		else
+		else if (str[i] != ' ')
 			error3();
 		i++;
 	}

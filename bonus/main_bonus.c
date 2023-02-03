@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 20:13:51 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/02/02 23:58:09 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/02/03 19:11:23 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,23 @@
 void	check_max(char **argv)
 {
 	int	i;
+	int	j;
 
 	i = 1;
+	j = 0;
 	while (argv[i])
 	{
 		if (ft_atoi(argv[i], 0) > INT_MAX || ft_atoi(argv[i], 0) < INT_MIN)
 			error();
+		j = 0;
+		while (argv[i][j])
+		{
+			if ((argv[i][j] == '-' && !ft_isdigit(argv[i][j + 1]))
+				|| (argv[i][j] == '+' && !ft_isdigit(argv[i][j + 1]))
+				|| (argv[i][j] == '-' && argv[i][j + 1] == '-'))
+				error();
+			j++;
+		}
 		i++;
 	}
 }
@@ -86,7 +97,7 @@ void	check_sort(t_data *data)
 		return ;
 	}
 	i = 0;
-	while (i < data->andx - 1)
+	while (i <= data->andx - 1)
 	{
 		if (data->stack_a[i] < data->stack_a[i + 1])
 		{

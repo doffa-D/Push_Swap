@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 21:59:12 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/02/02 20:28:39 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/02/03 18:47:23 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,30 +16,6 @@ void	error(void)
 {
 	write(2, "Error\n", 6);
 	exit(0);
-}
-
-int	is_sorted(int *stack, int andx)
-{
-	int	i;
-	int	j;
-	int	x;
-
-	i = 0;
-	j = 0;
-	x = 0;
-	while (i < andx)
-	{
-		if (stack[i] > stack[i + 1])
-			j = 1;
-		else
-			x = 1;
-		i++;
-	}
-	if (j == 1 && x == 0)
-	{
-		exit(0);
-	}
-	return (0);
 }
 
 int	duplicate(int *arr, int size)

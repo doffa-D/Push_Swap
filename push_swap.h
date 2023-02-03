@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 10:03:22 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/02/02 20:51:34 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/02/03 18:53:51 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,8 @@ t_count	*count(int andx, int less, t_data *data);
 
 int		big_in_stack(int *stack, int len);
 void	best_move(t_data *data);
-int		is_sorted(int *stack, int andx);
+int		is_sorted(t_data *data);
+void	check_sort(t_data *data);
 
 int		check(t_data *data);
 int		duplicate(int *arr, int size);

@@ -6,31 +6,31 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 21:59:12 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/02/02 20:02:06 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/02/03 18:53:13 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_sorted(int *stack, int andx)
+int	is_sorted(t_data *data)
 {
 	int	i;
 	int	j;
-	int	x;
 
-	i = 0;
+	i = data->andx;
 	j = 0;
-	x = 0;
-	while (i < andx)
+	while (i >= 0)
 	{
-		if (stack[i] > stack[i + 1])
-			j = 1;
-		else
-			x = 1;
-		i++;
+		if (i - 1 > -1 && data->stack_a[i] < data->stack_a[i - 1])
+			j++;
+		i--;
 	}
-	if (j == 1 && x == 0)
+	if (j == data->andx)
+	{
+		free(data->stack_a);
+		free(data->stack_b);
 		exit(0);
+	}
 	return (1);
 }
 
