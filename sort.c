@@ -6,15 +6,17 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 18:48:01 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/02/02 20:16:27 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/02/04 19:21:25 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	error(void)
+void	error(t_data *data)
 {
 	write(2, "Error\n", 6);
+	free(data->stack_a);
+	free(data->stack_b);
 	exit(0);
 }
 

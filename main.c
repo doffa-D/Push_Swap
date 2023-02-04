@@ -6,30 +6,30 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 19:34:09 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/02/03 18:53:37 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/02/04 19:21:07 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	check_max(char **argv)
+void	check_max(char **argv, t_data *data)
 {
 	int	i;
 	int	j;
 
-	i = 1;
+	i = 0;
 	j = 0;
 	while (argv[i])
 	{
 		if (ft_atoi(argv[i], 0) > INT_MAX || ft_atoi(argv[i], 0) < INT_MIN)
-			error();
+			error(data);
 		j = 0;
 		while (argv[i][j])
 		{
 			if ((argv[i][j] == '-' && !ft_isdigit(argv[i][j + 1]))
 				|| (argv[i][j] == '+' && !ft_isdigit(argv[i][j + 1]))
 				|| (argv[i][j] == '-' && argv[i][j + 1] == '-'))
-				error();
+				error(data);
 			j++;
 		}
 		i++;
@@ -62,11 +62,13 @@ void	fill(t_data *data, char **str, int len)
 int	main(int argc, char *argv[])
 {
 	t_data	data;
+	char	**splited;
 
 	if (argc == 1)
 		exit(0);
-	check_max(argv);
-	fill(&data, number_join(&data, argv), data.len);
+	splited = number_join(&data, argv);
+	check_max(splited, &data);
+	fill(&data, splited, data.len);
 	is_sorted(&data);
 	if (data.len == 2)
 		sort_2(&data);
@@ -78,5 +80,7 @@ int	main(int argc, char *argv[])
 		sort_5(&data);
 	else if (data.len > 5)
 		best_move(&data);
+	free(data.stack_a);
+	free(data.stack_b);
 	return (0);
 }

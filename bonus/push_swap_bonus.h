@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 20:07:06 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/02/02 20:30:02 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/02/04 15:54:20 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,5 @@ int		checker(char *str, t_data *data);
 int		is_sorted(int *stack, int andx);
 char	**number_join(t_data *data, char **argv);
 int		duplicate(int *arr, int size);
-void	error(void);
+void	error(t_data *data);
 #endif

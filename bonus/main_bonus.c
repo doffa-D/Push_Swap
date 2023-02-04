@@ -6,30 +6,30 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 20:13:51 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/02/03 19:11:23 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/02/04 19:22:17 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
 
-void	check_max(char **argv)
+void	check_max(char **argv, t_data *data)
 {
 	int	i;
 	int	j;
 
-	i = 1;
+	i = 0;
 	j = 0;
 	while (argv[i])
 	{
 		if (ft_atoi(argv[i], 0) > INT_MAX || ft_atoi(argv[i], 0) < INT_MIN)
-			error();
+			error(data);
 		j = 0;
 		while (argv[i][j])
 		{
 			if ((argv[i][j] == '-' && !ft_isdigit(argv[i][j + 1]))
 				|| (argv[i][j] == '+' && !ft_isdigit(argv[i][j + 1]))
 				|| (argv[i][j] == '-' && argv[i][j + 1] == '-'))
-				error();
+				error(data);
 			j++;
 		}
 		i++;
@@ -114,25 +114,24 @@ int	main(int argc, char **argv)
 	t_data	data;
 	char	*str;
 	int		v;
+	char	**splited;
 
 	v = 1;
 	if (argc == 1)
 		exit(0);
-	check_max(argv);
-	if (argc == 2)
-		exit(0);
-	fill(&data, number_join(&data, argv), data.len);
+	splited = number_join(&data, argv);
+	check_max(splited, &data);
+	fill(&data, splited, data.len);
 	while (v)
 	{
 		str = get_next_line(0);
 		if (!str)
 			break ;
 		if (!checker(str, &data))
-		{
-			write(2, "Error\n", 6);
-			exit(0);
-		}
+			error(&data);
 	}
 	check_sort(&data);
+	free(data.stack_a);
+	free(data.stack_b);
 	return (0);
 }

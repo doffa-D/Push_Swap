@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 10:43:40 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/02/02 19:52:47 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/02/04 19:20:49 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void	move_rules_1r(t_data *data, t_count *final)
 	}
 	while (final->rr > 0)
 	{
-		rr(data->stack_a, data->stack_b,
-			data->andx, data->element - data->andx - 2);
+		rr(data->stack_a, data->stack_b, data->andx, data->element - data->andx
+			- 2);
 		final->rr--;
 	}
 }
@@ -46,8 +46,8 @@ void	move_rules_2r(t_data *data, t_count *final)
 	}
 	while (final->rrr > 0)
 	{
-		rrr(data->stack_a, data->stack_b,
-			data->andx, data->element - data->andx - 2);
+		rrr(data->stack_a, data->stack_b, data->andx, data->element - data->andx
+			- 2);
 		final->rrr--;
 	}
 }
@@ -75,8 +75,8 @@ void	best_move(t_data *data)
 
 void	calculator(t_data *data, int i)
 {
-	t_count	*struct0;
-	t_count	*final;
+	t_count	struct0;
+	t_count	final;
 	int		score;
 	int		less;
 	int		max_score;
@@ -87,17 +87,14 @@ void	calculator(t_data *data, int i)
 	{
 		less = less_than(data->stack_a, data->stack_b[i], data->andx);
 		struct0 = count(i, less, data);
-		score = ft_get_score(struct0);
+		score = ft_get_score(&struct0);
 		if (score < max_score)
 		{
 			final = struct0;
 			max_score = score;
-			data->index_to = i;
-			data->less = less;
 		}
 		i++;
 	}
-	free(struct0);
-	ft_imp(data, final);
+	ft_imp(data, &final);
 	pa(data, data->element, data->andx);
 }
