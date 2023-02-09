@@ -6,7 +6,7 @@
 /*   By: hdagdagu <hdagdagu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 20:13:51 by hdagdagu          #+#    #+#             */
-/*   Updated: 2023/02/04 19:22:17 by hdagdagu         ###   ########.fr       */
+/*   Updated: 2023/02/09 11:42:52 by hdagdagu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ void	fill(t_data *data, char **str, int len)
 	int	i;
 
 	i = 0;
+	if (data->len == 1)
+		exit(0);
 	data->stack_a = malloc(sizeof(int) * len);
 	data->stack_b = malloc(sizeof(int) * len);
 	if (!data->stack_a || !data->stack_b)
@@ -119,6 +121,7 @@ int	main(int argc, char **argv)
 	v = 1;
 	if (argc == 1)
 		exit(0);
+	no_thing(argv, &data);
 	splited = number_join(&data, argv);
 	check_max(splited, &data);
 	fill(&data, splited, data.len);
@@ -129,6 +132,7 @@ int	main(int argc, char **argv)
 			break ;
 		if (!checker(str, &data))
 			error(&data);
+		free(str);
 	}
 	check_sort(&data);
 	free(data.stack_a);
